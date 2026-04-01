@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h2>Calculator</h2>
+
+    <form method="POST">
+        <input type="text" name="num1" placeholder="First number" required>
+        <input type="text" name="num2" placeholder="Second number">
+
+        <div class="buttons">
+            <button name="operation" value="+">+</button>
+            <button name="operation" value="-">-</button>
+            <button name="operation" value="*">*</button>
+            <button name="operation" value="/">/</button>
+            <button name="operation" value="pow">^</button>
+            <button name="operation" value="sqrt">√</button>
+            <button name="operation" value="sin">sin</button>
+            <button name="operation" value="cos">cos</button>
+            <button name="operation" value="tan">tan</button>
+            <button name="operation" value="log">ln</button>
+            <button name="operation" value="log10">log10</button>
+        </div>
+    </form>
+
+    {% if result %}
+        <p class="result">{{ expression }} = {{ result }}</p>
+    {% endif %}
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <a href="{{ url_for('history_page') }}">View History</a>
+</div>
+</body>
+</html>
